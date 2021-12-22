@@ -1,4 +1,4 @@
-package com.example.guidegenshinimpact;
+package com.example.guidegenshinimpact.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,9 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.guidegenshinimpact.R;
 import com.example.guidegenshinimpact.api.APIClient;
 import com.example.guidegenshinimpact.api.APIInterface;
+import com.example.guidegenshinimpact.models.CharacterGenshin;
 import com.example.guidegenshinimpact.ui.MenuDrawerActivity;
+import com.example.guidegenshinimpact.utils.Singleton;
+
 
 import java.util.ArrayList;
 
@@ -28,11 +32,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        apiInterface = APIClient.getClient().create(APIInterface.class);
-        getAllCharacers();
         tvcharacter = findViewById(R.id.hola);
         btnPersonajes = findViewById(R.id.btnPersonajes);
 
+        tvcharacter.setText(String.valueOf(Singleton.getInstance().getListCharacters().size()));
         btnPersonajes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,27 +45,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getAllCharacers() {
-        Call<ArrayList<String>> callCharacter = apiInterface.doGetInformationParticular("characters","lisa");
 
-        callCharacter.enqueue(new Callback<ArrayList<String>>() {
-            @Override
-            public void onResponse(Call<ArrayList<String>> call, Response<ArrayList<String>> response) {
-                ArrayList<String> listaCharacter = response.body();
-                Log.d("Character",listaCharacter.toString());
-                int i =0;
-                String data = "";
-                for (String character : listaCharacter) {
-                    i++;
-                    data += i +".-"+character +"\n";
-                }
-                tvcharacter.setText(data);
-            }
-
-            @Override
-            public void onFailure(Call<ArrayList<String>> call, Throwable t) {
-                Log.d("Error",call.toString());
-            }
-        });
-    }
 }

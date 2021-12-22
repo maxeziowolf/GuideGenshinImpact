@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guidegenshinimpact.R;
 import com.example.guidegenshinimpact.databinding.FragmentHomeBinding;
+import com.example.guidegenshinimpact.utils.StringFormatter;
 
 import java.util.ArrayList;
 
@@ -101,7 +102,7 @@ public class HomeFragment extends Fragment {
         arrayCharactersAutoComplete = new String[characterList.size()];
         int i = 0;
         for (String name : characterList) {
-            arrayCharactersAutoComplete[i]= CharacterViewHolder.upperCaseFirst(name);
+            arrayCharactersAutoComplete[i]= StringFormatter.upperCaseFirst(name);
             i++;
         }
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line,  arrayCharactersAutoComplete);
@@ -130,6 +131,12 @@ public class HomeFragment extends Fragment {
             }
         }
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        autoCompleteETBuscar.setText("");
     }
 
     @Override

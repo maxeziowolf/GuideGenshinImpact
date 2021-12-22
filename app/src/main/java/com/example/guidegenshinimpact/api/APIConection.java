@@ -2,6 +2,8 @@ package com.example.guidegenshinimpact.api;
 
 import android.util.Log;
 
+import com.example.guidegenshinimpact.models.CharacterGenshin;
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -16,7 +18,16 @@ public class APIConection {
     }
 
     public void getAllCharacers(Callback<ArrayList<String>> response) {
-        Call<ArrayList<String>> callCharacter = apiInterface.doGetInformation("characters");
-        callCharacter.enqueue(response);
+        Call<ArrayList<String>> callCharacters = apiInterface.doGetInformation("characters");
+        callCharacters.enqueue(response);
+    }
+    public void getCharacter(String name,String codeLang,Callback<CharacterGenshin> response){
+        if (!codeLang.trim().equals("")){
+            Call<CharacterGenshin> callCharacter = apiInterface.doGetInformationParticular("characters",name,codeLang);
+            callCharacter.enqueue(response);
+        }else{
+            Call<CharacterGenshin> callCharacter = apiInterface.doGetInformationParticular("characters",name);
+            callCharacter.enqueue(response);
+        }
     }
 }
