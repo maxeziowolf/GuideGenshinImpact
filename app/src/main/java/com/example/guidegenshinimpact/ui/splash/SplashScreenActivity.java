@@ -1,4 +1,4 @@
-package com.example.guidegenshinimpact.splash;
+package com.example.guidegenshinimpact.ui.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.guidegenshinimpact.R;
 import com.example.guidegenshinimpact.models.CharacterGenshin;
 import com.example.guidegenshinimpact.ui.main.MainActivity;
@@ -43,6 +45,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         });
         model.findCharacterInfo();
     }
+
+
 
     private void changeHome(){
         Intent intent = new Intent(this, MainActivity.class);

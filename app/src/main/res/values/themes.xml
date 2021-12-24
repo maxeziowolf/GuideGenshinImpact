@@ -20,4 +20,8 @@
     <style name="Theme.GuideGenshinImpact.AppBarOverlay"
         parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.GuideGenshinImpact.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="sin_fondo">
+        <item name="cardBackgroundColor">@android:color/transparent</item>
+    </style>
 </resources>

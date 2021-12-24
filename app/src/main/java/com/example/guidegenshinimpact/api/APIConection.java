@@ -21,6 +21,7 @@ public class APIConection {
         Call<ArrayList<String>> callCharacters = apiInterface.doGetInformation("characters");
         callCharacters.enqueue(response);
     }
+
     public void getCharacter(String name,String codeLang,Callback<CharacterGenshin> response){
         if (!codeLang.trim().equals("")){
             Call<CharacterGenshin> callCharacter = apiInterface.doGetInformationParticular("characters",name,codeLang);
@@ -29,5 +30,10 @@ public class APIConection {
             Call<CharacterGenshin> callCharacter = apiInterface.doGetInformationParticular("characters",name);
             callCharacter.enqueue(response);
         }
+    }
+
+    public void getElements(Callback<ArrayList<String>> response) {
+        Call<ArrayList<String>> callCharacters = apiInterface.doGetInformation("elements");
+        callCharacters.enqueue(response);
     }
 }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.detailcharacter.CharacterFragment">
 
     <ScrollView
@@ -24,11 +25,12 @@
                     android:layout_height="400dp"
                     android:layout_margin="20dp"
                     android:scaleType="fitCenter"/>
-                <ProgressBar
+                <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/loadProgressbar"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    app:lottie_rawRes="@raw/loading_animation"/>
             </FrameLayout>
 
             <TextView
@@ -39,21 +41,89 @@
                 android:textSize="30sp"
                 android:text="Nombre"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ivElelemntIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"/>
+
+                <TextView
+                    android:id="@+id/tvCharacterElementDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Elemento"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/start_1"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:lottie_rawRes="@raw/star_amimation"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/start_2"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:lottie_rawRes="@raw/star_amimation"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/start_3"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:lottie_rawRes="@raw/star_amimation"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/start_4"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:lottie_rawRes="@raw/star_amimation"/>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/start_5"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:lottie_rawRes="@raw/star_amimation"/>
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/tvCharacterDescriptionDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="18sp"
+                android:text="Descripcion"/>
+
         </LinearLayout>
     </ScrollView>
-
-    <FrameLayout
-        android:id="@+id/loadProgressbarGeneral"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"
-        android:alpha="0.5">
-
-        <ProgressBar
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </FrameLayout>
 
 </FrameLayout>

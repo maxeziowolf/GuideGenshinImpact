@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.guidegenshinimpact.api.APIConection;
+import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.utils.Singleton;
 
 import java.util.ArrayList;
 
@@ -14,24 +16,22 @@ import retrofit2.Response;
 
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<ArrayList<String>> charactersList = new MutableLiveData<>();
-    private APIConection apiConection = new APIConection();
+    private MutableLiveData<ArrayList<String>> charactersListNames = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<CharacterGenshin>> charactersList = new MutableLiveData<>();
 
-    public MutableLiveData<ArrayList<String>> getCharactersList() {
+    public MutableLiveData<ArrayList<String>> getCharactersListNames() {
+        return charactersListNames;
+    }
+
+    public MutableLiveData<ArrayList<CharacterGenshin>> getCharactersList() {
         return charactersList;
     }
 
     public void getAllCharactersNames(){
-        apiConection.getAllCharacers(new Callback<ArrayList<String>>() {
-            @Override
-            public void onResponse(Call<ArrayList<String>> call, Response<ArrayList<String>> response) {
-                charactersList.setValue(response.body());
-            }
+        charactersListNames.setValue(Singleton.getInstance().getListNames());
+    }
 
-            @Override
-            public void onFailure(Call<ArrayList<String>> call, Throwable t) {
-                charactersList.setValue(null);
-            }
-        });
+    public void getAllCharacters(){
+        charactersList.setValue(Singleton.getInstance().getListCharacters());
     }
 }

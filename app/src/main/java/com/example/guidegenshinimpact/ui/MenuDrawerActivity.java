@@ -6,6 +6,7 @@ import android.view.Menu;
 
 import com.example.guidegenshinimpact.R;
 import com.example.guidegenshinimpact.databinding.ActivityMenuDrawerBinding;
+import com.example.guidegenshinimpact.utils.Singleton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
@@ -26,6 +27,8 @@ private ActivityMenuDrawerBinding binding;
 
      binding = ActivityMenuDrawerBinding.inflate(getLayoutInflater());
      setContentView(binding.getRoot());
+
+        Singleton.getInstance().setToolbar(binding.appBarMenuDrawer.toolbar);
 
         setSupportActionBar(binding.appBarMenuDrawer.toolbar);
         binding.appBarMenuDrawer.fab.setOnClickListener(new View.OnClickListener() {

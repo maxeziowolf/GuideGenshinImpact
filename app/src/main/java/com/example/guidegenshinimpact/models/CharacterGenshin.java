@@ -2,9 +2,10 @@ package com.example.guidegenshinimpact.models;
 
 import com.google.gson.annotations.Expose;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CharacterGenshin {
+public class CharacterGenshin implements Serializable {
 
     private String name;
     private String vision;
@@ -23,6 +24,7 @@ public class CharacterGenshin {
     private String bigIcon;
     private String icon;
     private String gachaSplash;
+    private String portrait;
 
     public String getName() {
         return name;
@@ -158,5 +160,13 @@ public class CharacterGenshin {
 
     public void setGachaSplash(String gachaSplash) {
         this.gachaSplash = gachaSplash;
+    }
+
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public void setPortrait(String portrait) {
+        this.portrait = portrait;
     }
 }

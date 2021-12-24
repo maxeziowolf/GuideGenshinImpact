@@ -1,4 +1,4 @@
-package com.example.guidegenshinimpact.ui.home;
+package com.example.guidegenshinimpact.ui.home.components;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,11 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guidegenshinimpact.R;
+import com.example.guidegenshinimpact.models.CharacterGenshin;
 
 import java.util.ArrayList;
 
 public class CharacterViewAdapter extends RecyclerView.Adapter<CharacterViewHolder>{
-    private ArrayList<String> characterList = new ArrayList<>();
+    private ArrayList<CharacterGenshin> characterList = new ArrayList<>();
 
     @NonNull
     @Override
@@ -30,7 +31,7 @@ public class CharacterViewAdapter extends RecyclerView.Adapter<CharacterViewHold
     }
 
 
-    public void setData(ArrayList<String> characterList){
+    public void setData(ArrayList<CharacterGenshin> characterList){
         this.characterList=characterList;
         notifyDataSetChanged();
     }

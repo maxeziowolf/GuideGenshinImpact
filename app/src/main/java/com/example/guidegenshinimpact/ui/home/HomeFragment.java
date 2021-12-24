@@ -3,7 +3,6 @@ package com.example.guidegenshinimpact.ui.home;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guidegenshinimpact.R;
 import com.example.guidegenshinimpact.databinding.FragmentHomeBinding;
+import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.ui.home.components.CharacterViewAdapter;
 import com.example.guidegenshinimpact.utils.StringFormatter;
 
 import java.util.ArrayList;
@@ -30,8 +31,9 @@ public class HomeFragment extends Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
     private CharacterViewAdapter characterViewAdapter;
-    private ArrayList<String> characterList;
-    private ArrayList<String> characterSerch;
+    private ArrayList<String> characterListNames;
+    private ArrayList<CharacterGenshin> characterList;
+    private ArrayList<CharacterGenshin> characterSerch;
     private String [] arrayCharactersAutoComplete;
     private AutoCompleteTextView autoCompleteETBuscar;
 
@@ -48,7 +50,6 @@ public class HomeFragment extends Fragment {
 
         initComponent(root);
 
-        initAutoComplete();
 
         return root;
     }
@@ -85,23 +86,32 @@ public class HomeFragment extends Fragment {
 
     private void initModel(View root) {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        homeViewModel.getCharactersList().observe(getViewLifecycleOwner(), new Observer<ArrayList<String>>() {
+        homeViewModel.getCharactersListNames().observe(getViewLifecycleOwner(), new Observer<ArrayList<String>>() {
             @Override
             public void onChanged(ArrayList<String> strings) {
                 if(strings != null){
-                    characterList = strings;
-                    characterViewAdapter.setData(characterList);
+                    characterListNames = strings;
                     initAutoComplete();
                 }
             }
         });
+        homeViewModel.getCharactersList().observe(getViewLifecycleOwner(), new Observer<ArrayList<CharacterGenshin>>() {
+            @Override
+            public void onChanged(ArrayList<CharacterGenshin> characterGenshins) {
+                if(characterGenshins != null){
+                    characterList = characterGenshins;
+                    characterViewAdapter.setData(characterGenshins);
+                }
+            }
+        });
         homeViewModel.getAllCharactersNames();
+        homeViewModel.getAllCharacters();
     }
 
     private void initAutoComplete() {
-        arrayCharactersAutoComplete = new String[characterList.size()];
+        arrayCharactersAutoComplete = new String[characterListNames.size()];
         int i = 0;
-        for (String name : characterList) {
+        for (String name : characterListNames) {
             arrayCharactersAutoComplete[i]= StringFormatter.upperCaseFirst(name);
             i++;
         }
@@ -111,7 +121,7 @@ public class HomeFragment extends Fragment {
 
     private void initRecycleView() {
         rvListCharacter = binding.rvListCharacters;
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),4);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
         rvListCharacter.setLayoutManager(gridLayoutManager);
         characterViewAdapter = new CharacterViewAdapter();
         characterList = new ArrayList<>();
@@ -123,9 +133,9 @@ public class HomeFragment extends Fragment {
         if(name.trim().equals("")){
             characterViewAdapter.setData(characterList);
         }else{
-            for (String characterName : characterList) {
-                if (characterName.contains(name.toLowerCase())){
-                    characterSerch.add(characterName);
+            for (CharacterGenshin character : characterList) {
+                if (character.getName().toLowerCase().contains(name.toLowerCase())){
+                    characterSerch.add(character);
                 }
                 characterViewAdapter.setData(characterSerch);
             }
