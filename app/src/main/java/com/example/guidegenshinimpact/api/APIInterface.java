@@ -1,6 +1,7 @@
 package com.example.guidegenshinimpact.api;
 
-import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
+import com.example.guidegenshinimpact.models.element.Element;
 
 import java.util.ArrayList;
 
@@ -19,5 +20,11 @@ public interface APIInterface {
 
     @GET("/{opcion}/{name}")
     Call<CharacterGenshin> doGetInformationParticular(@Path("opcion") String opcion, @Path("name") String name);
+
+    @GET("/{opcion}/{name}")
+    Call<Element> doGetInformationParticularElement(@Path("opcion") String opcion, @Path("name") String name, @Query("lang") String language);
+
+    @GET("/{opcion}/{name}")
+    Call<Element> doGetInformationParticularElement(@Path("opcion") String opcion, @Path("name") String name);
 
 }

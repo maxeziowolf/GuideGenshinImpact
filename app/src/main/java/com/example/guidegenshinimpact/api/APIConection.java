@@ -1,14 +1,12 @@
 package com.example.guidegenshinimpact.api;
 
-import android.util.Log;
-
-import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
+import com.example.guidegenshinimpact.models.element.Element;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 public class APIConection {
     private APIInterface apiInterface;
@@ -35,5 +33,15 @@ public class APIConection {
     public void getElements(Callback<ArrayList<String>> response) {
         Call<ArrayList<String>> callCharacters = apiInterface.doGetInformation("elements");
         callCharacters.enqueue(response);
+    }
+
+    public void getElement(String name,String codeLang,Callback<Element> response){
+        if (!codeLang.trim().equals("")){
+            Call<Element> callCharacter = apiInterface.doGetInformationParticularElement("elements",name,codeLang);
+            callCharacter.enqueue(response);
+        }else{
+            Call<Element> callCharacter = apiInterface.doGetInformationParticularElement("elements",name);
+            callCharacter.enqueue(response);
+        }
     }
 }

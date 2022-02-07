@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.guidegenshinimpact.R;
 import com.example.guidegenshinimpact.databinding.FragmentHomeBinding;
-import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
 import com.example.guidegenshinimpact.ui.home.components.CharacterViewAdapter;
 import com.example.guidegenshinimpact.utils.StringFormatter;
 

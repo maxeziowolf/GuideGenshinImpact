@@ -15,22 +15,29 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
+
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
 
                 <ImageView
                     android:id="@+id/ivDetailCharacterImage"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:layout_margin="20dp"
+                    android:layout_height="match_parent"
                     android:scaleType="fitCenter"/>
+
                 <com.airbnb.lottie.LottieAnimationView
                     android:id="@+id/loadProgressbar"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:lottie_rawRes="@raw/loading_animation"/>
+                    app:lottie_rawRes="@raw/loading_animation"
+                    app:lottie_loop="true"/>
+
             </FrameLayout>
 
             <TextView
@@ -39,7 +46,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="30sp"
-                android:text="Nombre"/>
+                android:background="@drawable/card_name_character_cryo"
+                android:textColor="@color/white"
+                android:text="Nombre"
+                android:fontFamily="@font/genshin_font"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,7 +58,7 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/ivElelemntIcon"
+                    android:id="@+id/ivElelemntIconDetail"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -59,12 +69,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:textSize="20sp"
                     android:text="Elemento"/>
 
-            </LinearLayout>
+                <ImageView
+                    android:id="@+id/ivNationIcon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"/>
 
+                <TextView
+                    android:id="@+id/tvCharacterNationDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Nación"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -110,7 +136,83 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:text="Tipo de arma: "
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvCharacterWeaponDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:text="Arma"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:text="Afiliación: "
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvCharacterAffiliationDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:text="Afiliación "/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:text="Cumpleaños: "
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tvCharacterBirthdayDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:justificationMode="inter_word"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18sp"
+                    android:text="Cumpleaños "/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tvCharacterDescriptionDetail"

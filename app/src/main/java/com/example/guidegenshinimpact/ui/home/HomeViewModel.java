@@ -1,18 +1,12 @@
 package com.example.guidegenshinimpact.ui.home;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.guidegenshinimpact.api.APIConection;
-import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
 import com.example.guidegenshinimpact.utils.Singleton;
 
 import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeViewModel extends ViewModel {
 

@@ -1,24 +1,18 @@
 package com.example.guidegenshinimpact.ui.home.components;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.guidegenshinimpact.R;
-import com.example.guidegenshinimpact.models.CharacterGenshin;
-import com.example.guidegenshinimpact.utils.StringFormatter;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
 
 public class CharacterViewHolder extends RecyclerView.ViewHolder {
     private ImageView ivCharacterImage;

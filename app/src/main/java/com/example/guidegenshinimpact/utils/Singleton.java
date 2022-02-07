@@ -2,7 +2,8 @@ package com.example.guidegenshinimpact.utils;
 
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
+import com.example.guidegenshinimpact.models.element.Element;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,7 +12,8 @@ public class Singleton {
     private static Singleton instance;
     private ArrayList<String> listNames;
     private ArrayList<CharacterGenshin> listCharacters;
-    private ArrayList<String> listElements;
+    private ArrayList<String> listElementsNames;
+    private ArrayList<Element> listElements;
     private androidx.appcompat.widget.Toolbar toolbar;
 
     public static Singleton getInstance(){
@@ -50,11 +52,19 @@ public class Singleton {
         this.listCharacters = listCharacters;
     }
 
-    public ArrayList<String> getListElements() {
+    public ArrayList<String> getListElementsNames() {
+        return listElementsNames;
+    }
+
+    public void setListElementsNames(ArrayList<String> listElementsNames) {
+        this.listElementsNames = listElementsNames;
+    }
+
+    public ArrayList<Element> getListElements() {
         return listElements;
     }
 
-    public void setListElements(ArrayList<String> listElements) {
+    public void setListElements(ArrayList<Element> listElements) {
         this.listElements = listElements;
     }
 

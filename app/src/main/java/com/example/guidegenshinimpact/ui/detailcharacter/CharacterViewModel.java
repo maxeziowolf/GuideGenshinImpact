@@ -4,11 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.guidegenshinimpact.api.APIConection;
-import com.example.guidegenshinimpact.models.CharacterGenshin;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
 
 public class CharacterViewModel extends ViewModel {
 

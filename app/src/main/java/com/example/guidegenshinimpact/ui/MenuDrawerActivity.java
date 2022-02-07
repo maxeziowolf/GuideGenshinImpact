@@ -9,6 +9,7 @@ import com.example.guidegenshinimpact.databinding.ActivityMenuDrawerBinding;
 import com.example.guidegenshinimpact.utils.Singleton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -19,25 +20,18 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MenuDrawerActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-private ActivityMenuDrawerBinding binding;
+    private ActivityMenuDrawerBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-     binding = ActivityMenuDrawerBinding.inflate(getLayoutInflater());
-     setContentView(binding.getRoot());
+        binding = ActivityMenuDrawerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         Singleton.getInstance().setToolbar(binding.appBarMenuDrawer.toolbar);
 
         setSupportActionBar(binding.appBarMenuDrawer.toolbar);
-        binding.appBarMenuDrawer.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

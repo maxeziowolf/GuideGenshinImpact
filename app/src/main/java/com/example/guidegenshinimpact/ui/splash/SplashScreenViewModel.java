@@ -4,7 +4,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.guidegenshinimpact.api.APIConection;
-import com.example.guidegenshinimpact.models.CharacterGenshin;
+import com.example.guidegenshinimpact.models.character.CharacterGenshin;
+import com.example.guidegenshinimpact.models.element.Element;
 import com.example.guidegenshinimpact.utils.Singleton;
 import com.example.guidegenshinimpact.utils.StringFormatter;
 
@@ -16,20 +17,25 @@ import retrofit2.Response;
 
 public class SplashScreenViewModel extends ViewModel {
     private final String prefix = "https://api.genshin.dev/characters/";
+    private final String prefix2 = "https://api.genshin.dev/elements/";
     private final String sufixIconAether = "/icon-big-aether.png";
     private final String sufixBigIcon = "/icon-big.png";
     private final String sufixIcon = "/icon.png";
     private final String sufixSplash = "/gacha-splash.png";
     private final String sufixSplashAether = "/portraitf.png";
     private final String sufixPortrait = "/portrait.png";
-    private MutableLiveData<ArrayList<CharacterGenshin>> listCharacters = new MutableLiveData<>();
     private APIConection apiConection = new APIConection();
+    private MutableLiveData<Integer> numProcess = new MutableLiveData<>();
     private ArrayList<CharacterGenshin> listCharactersAux;
+    private ArrayList<Element> listElementArrayList;
     private int contador;
+    private int contador2;
 
     //Getter
-    public MutableLiveData<ArrayList<CharacterGenshin>> getListCharacters() {
-        return listCharacters;
+
+
+    public MutableLiveData<Integer> getNumProcess() {
+        return numProcess;
     }
 
     //Function
@@ -44,7 +50,7 @@ public class SplashScreenViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<ArrayList<String>> call, Throwable t) {
-                listCharacters.setValue(null);
+                numProcess.setValue(0);
             }
         });
     }
@@ -81,7 +87,8 @@ public class SplashScreenViewModel extends ViewModel {
                     find(name,"");
                 }
                 if(contador == 0){
-                    listCharacters.setValue(listCharactersAux);
+                    Singleton.getInstance().setListCharacters(listCharactersAux);
+                    numProcess.setValue(1);
                 }
             }
 
@@ -96,13 +103,47 @@ public class SplashScreenViewModel extends ViewModel {
         apiConection.getElements(new Callback<ArrayList<String>>() {
             @Override
             public void onResponse(Call<ArrayList<String>> call, Response<ArrayList<String>> response) {
-                Singleton.getInstance().setListElements(response.body());
+                findElementInfo(response.body());
             }
 
             @Override
             public void onFailure(Call<ArrayList<String>> call, Throwable t) {
-
+                numProcess.setValue(0);
             }
         });
     }
+
+    private void findElementInfo(ArrayList<String> elementsList) {
+        listElementArrayList = new ArrayList<>();
+        contador2 = 0;
+        contador2 = elementsList.size();
+        Singleton.getInstance().setListElementsNames(elementsList);
+        for (String name : elementsList) {
+            findElement(name, "es");
+        }
+    }
+
+    private void  findElement(String name,String codeLLang){
+        apiConection.getElement(name, codeLLang, new Callback<Element>() {
+            @Override
+            public void onResponse(Call<Element> call, Response<Element> response) {
+                if(response.isSuccessful()){
+                    response.body().setIcon(prefix2+name+sufixIcon);
+                    listElementArrayList.add(response.body());
+                    contador2--;
+                }else{
+                    findElement(name,"");
+                }
+                if(contador2 == 0){
+                    Singleton.getInstance().setListElements(listElementArrayList);
+                    numProcess.setValue(2);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Element> call, Throwable t) {
+            }
+        });
+    }
+
 }

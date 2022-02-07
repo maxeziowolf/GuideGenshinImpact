@@ -4,6 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_character.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character_anemo.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character_cryo.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character_dendro.xml" value="0.278125" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character_electro.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character_geo.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character_hydro.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/card_name_character_pyro.xml" value="0.278125" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/drawable/fondo_home.xml" value="0.14375" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/layout/activity_splash_screen.xml" value="0.23777173913043478" />
@@ -14,6 +22,7 @@
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/layout/fragment_gallery.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/layout/fragment_slideshow.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/layout/fragment_wish.xml" value="0.213768115942029" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/layout/nav_header_menu_drawer.xml" value="0.22871376811594202" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/GuideGenshinImpact/app/src/main/res/menu/menu_drawer.xml" value="0.25" />
